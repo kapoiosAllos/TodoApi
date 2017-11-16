@@ -1,0 +1,26 @@
+function cleanUpDoneTodos(event) {
+  event.preventDefault();
+
+  var request = {
+    type: 'DELETE',
+    url: '/todos/' + todoId + '.json',
+  }
+
+  $.ajax(request)
+    .done(data) {
+
+    }
+    .fail(error) {
+
+    }
+
+  $.when($(".success").remove())
+    .then(updateCounters);
+}
+
+$(document).ready(function() {
+  $("input[type=checkbox]").bind('change', toggleDone);
+  $("form").bind('submit', submitTodo);
+  $("#clean-up").bind('click', cleanUpDoneTodos);
+  updateCounters();
+});
